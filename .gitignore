@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.pdf
+!showcase/BIO204-Lab3-Poster.pdf
+*.pptx
+*.pse

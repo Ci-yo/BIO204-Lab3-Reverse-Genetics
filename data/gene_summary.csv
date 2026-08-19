@@ -1,0 +1,2 @@
+gene_id,systematic_name,organism,chromosome,strand,genomic_start,genomic_end,protein_length_aa,predicted_function,interpro,template_identity_percent,model_coverage,gmqe
+ANID_08533,AN8533,Aspergillus nidulans,chromosome V,minus,776470,777679,355,putative nucleoside-related catalytic protein,IPR035994,74.13,0.97,0.84

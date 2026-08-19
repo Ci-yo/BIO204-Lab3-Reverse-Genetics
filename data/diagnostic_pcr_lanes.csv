@@ -1,0 +1,9 @@
+lane,sample,primer_set,expected,observed,interpretation
+1,DNA ladder,,marker bands,marker bands,size reference
+2,water control,negative control,no band,no band,no obvious contamination
+3,original strain,1,1092 bp,no band,wild-type control failed
+4,original strain,2,no band,no band,limited interpretation because lane 3 failed
+5,putative transformant 1,1,no band,1.1-1.2 kb band,wild-type locus detectable
+6,putative transformant 1,2,970 bp,no band,no support for correct replacement
+7,putative transformant 2,1,no band,1.1-1.2 kb band,wild-type locus detectable
+8,putative transformant 2,2,970 bp,no band,no support for correct replacement

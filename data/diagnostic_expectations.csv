@@ -1,0 +1,5 @@
+genotype,primer_set,forward_primer,reverse_primer,expected_product_bp,expected_call
+wild_type,1,ANID_08533F,ANID_08533R,1092,band
+wild_type,2,ANID_08533F,Af-pyrG-Rev,,no_product
+correct_deletion,1,ANID_08533F,ANID_08533R,,no_product
+correct_deletion,2,ANID_08533F,Af-pyrG-Rev,970,band

@@ -11,6 +11,69 @@
 
 </div>
 
+## Step-by-step guide
+
+### 1. Prepare your computer and get the files
+
+Use [Python 3.10 or later](https://www.python.org/downloads/).
+Check `python --version` in your terminal. On Windows, select the installer's
+option to add Python to PATH, or use `py` in place of `python`. Install [Git](https://git-scm.com/downloads) to use the commands below.
+Run them in a **terminal** (PowerShell on Windows; Terminal on macOS/Linux):
+
+```bash
+git clone https://github.com/Ci-yo/BIO204-Lab3-Reverse-Genetics.git
+cd BIO204-Lab3-Reverse-Genetics
+```
+
+Alternatively, use **Code → Download ZIP**, extract it, and open a terminal in
+the extracted folder. All commands below start in the folder containing
+`README.md`. A second run replaces the generated outputs named below.
+
+### 2. Locate the sequence and structure inputs
+
+The repository includes two annotated GenBank files in [`sequences/`](sequences/),
+one predicted protein PDB in [`structures/`](structures/), and the recorded
+diagnostic observations in [`data/`](data/). The summary uses Python's standard
+library; no `pip install` step is needed.
+
+### 3. Build the computational inventory
+
+```bash
+python scripts/summarize_design.py
+python scripts/validate_repository.py
+```
+
+The first command reports **two loci** and the number of modelled residues.
+The validator checks the archived files and recorded interpretation.
+
+### 4. Inspect the output
+
+| Output | Contents |
+|---|---|
+| [`results/sequence_inventory.csv`](results/sequence_inventory.csv) | GenBank locus names, sequence lengths and annotated feature labels. |
+| [`results/structure_inventory.csv`](results/structure_inventory.csv) | Atom-record and modelled-residue counts for the predicted structure. |
+| [`data/diagnostic_pcr_lanes.csv`](data/diagnostic_pcr_lanes.csv) | Recorded lane calls to compare with the archived gel image. |
+
+To view the protein, install PyMOL, start it with the repository root as its
+working directory, then enter this in the **PyMOL command line**:
+
+```pml
+@scripts/view_model.pml
+```
+
+The script resets the current PyMOL scene and displays the supplied model as
+a cartoon. It does not predict a new structure or establish that a deletion
+was experimentally confirmed.
+
+### 5. Troubleshooting
+
+| Symptom | Action |
+|---|---|
+| `python` is not recognised | Check the Python installation; on Windows try `py --version`. |
+| An input file cannot be found | Run from the repository root and extract the complete ZIP, not just the script. |
+| PyMOL cannot load the PDB | Set its working directory to this repository, then rerun the `.pml` command. |
+| The poster and inventory seem to answer different questions | The inventory audits files; the poster interprets the experimental observations. Read both before drawing conclusions. |
+
 ## Poster showcase
 
 [![BIO204 Lab 3 research poster](showcase/BIO204-Lab3-Poster-preview.png)](showcase/BIO204-Lab3-Poster.pdf)
@@ -68,19 +131,6 @@ flowchart LR
     C --> D{"WT band absent and 970 bp junction present?"}
     D -->|Yes| E["Knockout supported"]
     D -->|No| F["Do not claim deletion"]
-```
-
-## Explore the design
-
-```bash
-python scripts/summarize_design.py
-python scripts/validate_repository.py
-```
-
-Open the predicted protein in PyMOL from the repository root:
-
-```pml
-@scripts/view_model.pml
 ```
 
 ## Repository map
